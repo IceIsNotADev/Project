@@ -8,8 +8,6 @@ export default function intruder(req, res) {
             res.status(400).json({message: "An error has occurred while trying to update the location."})
         })
         res.status(200).json({message: "Location updated"});
-    } else {
-        res.status(400).json({message: "You do not have permission to perform this action. Provided key: " + req.body.usagekey});
     }
     if (req.method === "GET") {
         res.status(200).json(location.location);

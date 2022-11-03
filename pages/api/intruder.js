@@ -4,9 +4,8 @@ const fs = require('fs');
 
 export default function intruder(req, res) {
     if (req.query.usagekey === process.env.special_key && req.method === "POST") {
-        fs.writeFile('public/location.json', `{"location" : ${req.headers.locat}}`, (err) => {
-            res.status(400).json({message: "An error has occurred while trying to update the location."})
-        })
+        console.log(req.headers.locat)
+        fs.writeFile('public/location.json', `{"location" : ${req.headers.locat}}`, function (err) {res.status(400).json({ error: err })});
         res.status(200).json({message: "Location updated"});
     }
     if (req.method === "GET") {

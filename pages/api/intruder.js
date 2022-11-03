@@ -6,7 +6,7 @@ export default function intruder(req, res) {
     const {locat} = req.headers;
     if (req.query.usagekey === process.env.special_key && req.method === "POST") {
         console.log(locat);
-        fs.writeFile('public/location.json', `{"location" : ${locat}}`, function (err) {res.status(400).json({ error: err })});
+        fs.writeFile('public/location.json', `{"location" : ${locat.toString()}}`, function (err){return err});
         res.status(200).json({message: "Location updated"});
     }
     if (req.method === "GET") {

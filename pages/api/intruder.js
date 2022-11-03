@@ -15,6 +15,6 @@ export default function intruder(req, res) {
             res.status(404).json({message: "You cannot perform this action on this endpoint"});
         }
     } else {
-        res.status(400).json({message: "You do not have permission to perform this action. Please provide a key."});
+        res.status(400).json({message: "You do not have permission to perform this action. Provided key: " + req.body.usagekey});
     }
 }

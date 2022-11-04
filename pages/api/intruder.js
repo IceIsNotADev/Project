@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-export default function intruder(req, res) {
+export default async function intruder(req, res) {
     const {locat} = req.headers;
     if (req.query.usagekey === process.env.special_key && req.method === "POST") {
         console.log(locat);
